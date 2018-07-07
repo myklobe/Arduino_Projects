@@ -28,8 +28,8 @@ uint16_t scrollPause = 2000;                      // in milliseconds
 
 // Global message buffers for Scrolling functions
 #define BUF_SIZE  75
-char curMessage[BUF_SIZE] = { " " };                      // First message to display
-char newMessage[BUF_SIZE] = { "Scrolling Text is Fun!" }; // Second message to display
+char curMessage[BUF_SIZE] = { " " };
+char newMessage[BUF_SIZE] = { "Scrolling Text is Fun!" }; // Message to display
 bool newMessageAvailable = true;
 
 
