@@ -27,10 +27,11 @@ textPosition_t scrollAlign = PA_LEFT;
 uint16_t scrollPause = 2000;                      // in milliseconds
 
 // Global message buffers for Scrolling functions
-#define	BUF_SIZE	75
-char curMessage[BUF_SIZE] = { "First Message..." };   // First message to display
-char newMessage[BUF_SIZE] = { "Second Message..." };  // Second message to display
+#define BUF_SIZE  75
+char curMessage[BUF_SIZE] = { " " };                      // First message to display
+char newMessage[BUF_SIZE] = { "Scrolling Text is Fun!" }; // Second message to display
 bool newMessageAvailable = true;
+
 
 void setup(void)
 {
@@ -44,9 +45,9 @@ void loop()   // basic loop to make the text scroll through the entire message, 
   {
     if (newMessageAvailable)
     {
-      strcpy(curMessage, newMessage);   // displays the first message, pauses, then displays the second message
-      newMessageAvailable = false;      // clears
+      strcpy(curMessage, newMessage); // displays the message, pauses, then repeats
+      P.displayReset();                   // Reset
+      newMessageAvailable = true;
     }
-    P.displayReset();                   // Reset / Repeat
   }
 }
