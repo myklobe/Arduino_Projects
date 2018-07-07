@@ -1,4 +1,4 @@
-// I have customized an example from the MD_Parola library to make this simple 8x32 LED Might Matrix scroller
+// I have customized this sketch from the MD_Parola library to make this simple 8x32 LED Might Matrix scroller
 // My LED Matrix: https://www.amazon.com/gp/product/B06W9F1J2Z/
 // Cylewet MAX7219 Dot Matrix Module 4 in 1 Display for Arduino Microcontroller with 5Pin Line CYT1045 (FC16 is this hardware type)
 
