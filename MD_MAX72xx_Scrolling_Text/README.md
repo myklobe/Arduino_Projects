@@ -18,5 +18,4 @@ include <SPI.h>          // https://github.com/PaulStoffregen/SPI - Download her
 
 The rest of the code is a basic setup with parameters - refer to the MD_Parola and MC_MAX72xx documentation for all paramters and switches
 
-The example I've created has 2 blocks of text that span over 4 LED Matrixes (4x38).
-First block of text displays scrolling from right to left, pauses, then displays the seconds block in the same fashion.
+The example I've created has a text block that scrolles over 4 LED Matrixes (4x38) from right to left, marquee style.
