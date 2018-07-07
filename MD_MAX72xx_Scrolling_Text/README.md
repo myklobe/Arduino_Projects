@@ -1,5 +1,7 @@
 "# Arduino_Projects" 
 
+For use with Arduino Create Studio - https://create.arduino.cc/editor/
+
 I have customized an example from the MD_Parola library to make this simple 8x32 LED Might Matrix scroller
 Add lines on my Arduino sketch have comments that explain what I've done.
 
