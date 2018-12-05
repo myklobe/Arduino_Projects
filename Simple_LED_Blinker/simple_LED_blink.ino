@@ -12,18 +12,18 @@ void setup()
   pinMode(ledPin8, OUTPUT);      // sets the digital pin as output
 }
 
-void randomSleeper() // to randomize the sleeps
+void randomSleeper() // UNTESTED - function to to randomize the sleep times
 {
-	float duration = rand() % 10 + 1;
-	cout << Sleep(duration);
+	float duration = rand() % 10 + 1;	// random sleep between 1 and 10
+	cout << Sleep(duration);			// prints sleep duration to console
 }
 
 void loop()
 {
   digitalWrite(ledPin8, HIGH);   // sets the LED on
-  	randomSleeper();             // untested
+  	randomSleeper();
 //  delay(250);                  // waits for half a second
   digitalWrite(ledPin8, LOW);    // sets the LED off
-  	randomSleeper();             // untested
+  	randomSleeper();
 //  delay(250);                  // waits for half a second
 }
