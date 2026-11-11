@@ -9,8 +9,7 @@
       print("4. All On")
       print("5. All Off")
       
-
-      choice = input("Enter the number of your choice (1-3): ")
+      choice = input("Enter the number of your choice (1-5): ")
 
       # Map the selection to the corresponding color
       color_map = {
