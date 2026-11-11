@@ -1,75 +1,96 @@
- import sys
-
-  def main():
-      # --- Refactored Section ---
-      print("Please select a color for the alert:")
-      print("1. Green")
-      print("2. Yellow")
-      print("3. Red")
-      print("4. All On")
-      print("5. All Off")
-      
-      choice = input("Enter the number of your choice (1-5): ")
-
-      # Map the selection to the corresponding color
-      color_map = {
-          "1": "green",
-          "2": "yellow",
-          "3": "red",
-          "4": "All On",
-          "5": "All Off"
-        }
-
-      if choice in color_map:
-          selected_color = color_map[choice]
-          print(f"You selected: {selected_color}")
-          # Proceed with logic using selected_color
-      else:
-          print("Invalid selection. Please run the program again and choose 1, 2, 3, 4, or 5.")
-          sys.exit(1)
-
-// Define the pins
-const int redLEDPin8 = 8;
-const int yellowLEDPin7 = 7;
-const int greenLEDPin6 = 6;
-
-// This is your "Selection" control
-// 1 = Red, 2 = Yellow, 3 = Green
-int selectedColor = 1;
+// Pin Definitions
+const int RED_PIN = 8;
+const int YELLOW_PIN = 7;
+const int GREEN_PIN = 6;
 
 void setup() {
-  pinMode(redLEDPin8, OUTPUT);
-  pinMode(yellowLEDPin7, OUTPUT);
-  pinMode(greenLEDPin6, OUTPUT);
+  // Initialize Serial Communication at 9600 bits per second
+  Serial.begin(9600);
+
+  // Set all LED pins as OUTPUT
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(YELLOW_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+
+  // Start with all lights off
+  allOff();
+
+  // Print a welcome message
+  Serial.println("--- LED Control System ---");
+  Serial.println("Enter a command:");
+  Serial.println("Options: red, yellow, green, all on, all off");
 }
 
 void loop() {
-  // Turn all lights OFF first
-  digitalWrite(redLEDPin8, LOW);
-  digitalWrite(yellowLEDPin7, LOW);
-  digitalWrite(greenLEDPin6, LOW);
+  // Check if the user has typed anything in the Serial Monitor
+  if (Serial.available() > 0) {
+    // Read the incoming string until a newline character
+    String input = Serial.readStringUntil('\n');
 
-// Logic to map the selection to the color
-  if (selectedColor == 1) {
-    digitalWrite(redLEDPin8, HIGH);
+    // Remove any hidden characters (like \r)
+    input.trim();
+
+    // Convert input to lowercase to make it case-insensitive
+    input.toLowerCase();
+
+    Serial.print("You entered: ");
+    Serial.println(input);
+
+    // Logic to handle the input
+    if (input == "red") {
+      turnOnRed();
+    }
+    else if (input == "yellow") {
+      turnOnYellow();
+    }
+    else if (input == "green") {
+      turnOnGreen();
+    }
+    else if (input == "all on") {
+      turnAllOn();
+    }
+    else if (input == "all off") {
+      allOff();
+    }
+    else {
+      Serial.println("Invalid command. Please try again.");
+    }
   }
-  else if (selectedColor == 2) {
-    digitalWrite(yellowLEDPin7, HIGH);
-  }
-  else if (selectedColor == 3) {
-    digitalWrite(greenLEDPin6, HIGH);
-  }
-  else if (selectedColor == 4) {
-    digitalWrite(greenLEDPin6, HIGH),
-    digitalWrite(greenLEDPin7, HIGH),
-    digitalWrite(greenLEDPin8, HIGH)
-    ;
-  }
-  
-  delay(100); // Small delay for stability
 }
 
-# --------------------------
+// --- Helper Functions to control the lights ---
 
-  if __name__ == "__main__":
-      main()
+void turnOnRed() {
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(YELLOW_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  Serial.println("Red light is ON");
+}
+
+void turnOnYellow() {
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(YELLOW_PIN, HIGH);
+  digitalWrite(GREEN_PIN, LOW);
+  Serial.println("Yellow light is ON");
+}
+
+void turnOnGreen() {
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(YELLOW_PIN, LOW);
+  digitalWrite(GREEN_PIN, HIGH);
+  Serial.println("Green light is ON");
+}
+
+void turnAllOn() {
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(YELLOW_PIN, HIGH);
+  digitalWrite(GREEN_PIN, HIGH);
+  Serial.println("All lights are ON");
+}
+
+void allOff() {
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(YELLOW_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  Serial.println("All lights are OFF");
+}
