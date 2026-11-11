@@ -6,6 +6,9 @@
       print("1. Green")
       print("2. Yellow")
       print("3. Red")
+      print("4. All On")
+      print("5. All Off")
+      
 
       choice = input("Enter the number of your choice (1-3): ")
 
@@ -14,8 +17,8 @@
           "1": "green",
           "2": "yellow",
           "3": "red",
-          "4": "all on",
-          "5": "all off"
+          "4": "All On",
+          "5": "All Off"
         }
 
       if choice in color_map:
@@ -23,7 +26,7 @@
           print(f"You selected: {selected_color}")
           # Proceed with logic using selected_color
       else:
-          print("Invalid selection. Please run the program again and choose 1, 2, or 3.")
+          print("Invalid selection. Please run the program again and choose 1, 2, 3, 4, or 5.")
           sys.exit(1)
 
 // Define the pins
