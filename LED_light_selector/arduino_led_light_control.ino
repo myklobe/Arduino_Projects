@@ -13,8 +13,10 @@
       color_map = {
           "1": "green",
           "2": "yellow",
-          "3": "red"
-      }
+          "3": "red",
+          "4": "all on",
+          "5": "all off"
+        }
 
       if choice in color_map:
           selected_color = color_map[choice]
@@ -55,11 +57,17 @@ void loop() {
   else if (selectedColor == 3) {
     digitalWrite(greenLEDPin6, HIGH);
   }
+  else if (selectedColor == 4) {
+    digitalWrite(greenLEDPin6, HIGH),
+    digitalWrite(greenLEDPin7, HIGH),
+    digitalWrite(greenLEDPin8, HIGH)
+    ;
+  }
+  
   delay(100); // Small delay for stability
 }
 
-
-      # --------------------------
+# --------------------------
 
   if __name__ == "__main__":
       main()
