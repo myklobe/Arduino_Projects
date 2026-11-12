@@ -18,7 +18,7 @@ connectBtn.addEventListener('click', async () => {
         statusText.innerText = "Status: Connected";
         statusText.style.color = "green";
         connectBtn.style.display = "none";
-        controls.style.display = "block";
+        controls.style.display = "flex"; // so the tiles stay horizontal
 
     } catch (error) {
         console.error(error);
