@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino LED Control</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: inline-block; min-width: 350px; }
+
+        button { padding: 15px 25px; font-size: 16px; margin: 10px; cursor: pointer; border-radius: 8px; border: none; transition: 0.2s; }
+        .btn-connect { background-color: #28a745; color: white; }
+        .btn-on { background-color: #007bff; color: white; }
+        .btn-off { background-color: #dc3545; color: white; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        #status { margin-top: 20px; font-weight: bold; }
+
+        /* --- UPDATED STYLES --- */
+        #controls {
+            display: flex;           /* Enables Flexbox */
+            flex-wrap: wrap;         /* Allows stacking on mobile phones */
+            justify-content: center; /* Centers the sections */
+            gap: 20px;               /* Adds space between the two sections */
+            margin-top: 20px;
+        }
+
+        .control-section {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fdfdfd;
+            flex: 1;                 /* Allows sections to grow equally */
+            min-width: 300px;        /* Prevents them from getting too skinny */
+            max-width: 400px;        /* Keeps them from getting too wide */
+        }
+
+        .section-title {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #555;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .main-container {
+
+            display: flex !important;           /* This makes the children side-by-side */
+            flex-direction: row !important;     /* Ensures they stay in a row */
+            justify-content: space-around; /* Spreads them out evenly */
+            align-items: flex-start;    /* Aligns them to the top */
+            gap: 20px;                /* Adds a gap between the two sections */
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;           /* Centers the container on the page */
+        }
+
+        /* Optional: Make sections take up equal width */
+        .section {
+            flex: 1;                  /* Gives both sections equal weight */
+            min-width: 300px; /* Prevents sections from getting too skinny */
+            padding: 20px;
+            border: 1px solid #ccc;  /* Optional: visual border to see the boxes */
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="main-container">
+
+    <div class="card" class="section">
+        <h1 style="margin-bottom: 20px;">LED Controller</h1>
+        <button id="connectBtn" class="btn-connect">Connect to Arduino</button>
+
+        <div id="controls" style="display: flex;"> <!-- Added display: flex here too for safety -->
+
+            <!-- Section 1: Basic LEDs -->
+            <div class="control-section">
+                <h2 class="section-title">Basic LEDs</h2>
+                <p>Red LED</p>
+                <button class="btn-on" onclick="sendCommand('RED_LED_ON')">ON</button>
+                <button class="btn-off" onclick="sendCommand('RED_LED_OFF')">OFF</button>
+
+                <p>Yellow LED</p>
+                <button class="btn-on" onclick="sendCommand('YELLOW_LED_ON')">ON</button>
+                <button class="btn-off" onclick="sendCommand('YELLOW_LED_OFF')">OFF</button>
+
+                <p>Green LED</p>
+                <button class="btn-on" onclick="sendCommand('GREEN_LED_ON')">ON</button>
+                <button class="btn-off" onclick="sendCommand('GREEN_LED_OFF')">OFF</button>
+            </div>
+
+            <!-- Section 2: Modes -->
+            <div class="control-section" class="section">
+                <h2 class="section-title">Special Modes</h2>
+                <p>All LEDs</p>
+                <button class="btn-on" onclick="sendCommand('ALL_ON')">ON</button>
+                <button class="btn-off" onclick="sendCommand('ALL_OFF')">OFF</button>
+
+                <p>Disco Mode</p>
+                <button class="btn-on" onclick="sendCommand('DISCO_MODE_ON')">ON</button>
+                <button class="btn-off" onclick="sendCommand('DISCO_MODE_OFF')">OFF</button>
+
+                <p>Stop Light</p>
+                <button class="btn-on" onclick="sendCommand('STOP_LIGHT_ON')">ON</button>
+                <button class="btn-off" onclick="sendCommand('STOP_LIGHT_OFF')">OFF</button>
+            </div>
+
+        </div>
+
+        <div id="status">Status: Disconnected</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
