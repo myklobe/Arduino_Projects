@@ -14,7 +14,7 @@
 
 ## 🔌 Wiring Diagram (Breadboard View)
 ```text
-	   ARDUINO MEGA 2560						LED Matrix
+	   ARDUINO MEGA 2560				LED Matrix
     +-------------------+
     |			|
     | [POWER SIDE GND]--|-------------------------( GND )----->
