@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino LED Control</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: inline-block; }
+        button { padding: 15px 25px; font-size: 16px; margin: 10px; cursor: pointer; border-radius: 8px; border: none; transition: 0.2s; }
+        .btn-connect { background-color: #28a745; color: white; }
+        .btn-on { background-color: #007bff; color: white; }
+        .btn-off { background-color: #dc3545; color: white; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        #status { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>LED Controller</h1>
+        <button id="connectBtn" class="btn-connect">Connect to Arduino (COM3)</button>
+
+        <div id="controls" style="display: none;">
+            <p>RED LED</p>
+            <button class="btn-on" onclick="sendCommand('RED_LED_ON')">ON</button>
+            <button class="btn-off" onclick="sendCommand('RED_LED_OFF')">OFF</button>
+
+            <p>YELLOW LED</p>
+            <button class="btn-on" onclick="sendCommand('YELLOW_LED_ON')">ON</button>
+            <button class="btn-off" onclick="sendCommand('YELLOW_LED_OFF')">OFF</button>
+
+            <p>GREEN LED</p>
+            <button class="btn-on" onclick="sendCommand('GREEN_LED_ON')">ON</button>
+            <button class="btn-off" onclick="sendCommand('GREEN_LED_OFF')">OFF</button>
+
+            <p>ALL LEDS</p>
+            <button class="btn-on" onclick="sendCommand('ALL_ON')">ON</button>
+            <button class="btn-off" onclick="sendCommand('ALL_OFF')">OFF</button>
+
+            <p>DISCO MODE!!</p>
+            <button class="btn-on" onclick="sendCommand('DISCO_MODE_ON')">ON</button>
+            <button class="btn-off" onclick="sendCommand('DISCO_MODE_OFF')">OFF</button>
+
+            <p>STOP LIGHT</p>
+            <button class="btn-on" onclick="sendCommand('STOP_LIGHT_ON')">ON</button>
+            <button class="btn-off" onclick="sendCommand('STOP_LIGHT_OFF')">OFF</button>
+
+        </div>
+
+
+        <div id="status">Status: Disconnected</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
