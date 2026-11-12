@@ -55,7 +55,7 @@ Once connected, you can control the LEDs using the following modes:
 *   **Disco Mode**: A randomizer that cycles through the LEDs randomly.
     *   *Note: This repeats automatically until you click the **Stop** button.*
 *   **Stop Light Simulator**: A programmed sequence:
-    *   **Red**: 3 seconds
-    *   **Yellow**: 1.5 seconds
     *   **Green**: 3 seconds
+    *   **Yellow**: 1.5 seconds
+    *   **Red**: 3 seconds
     *   *Note: This repeats automatically until you click the **Stop** button.*
