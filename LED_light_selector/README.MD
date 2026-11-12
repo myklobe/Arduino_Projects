@@ -1,3 +1,18 @@
+    ARDUINO MEGA 2560         BREADBOARD (Wiring View)
+    +-----------+
+    |           |
+    | [Pin 6] --|-----------[Resistor]-----((+ long) LED Green (-))-----|
+    |           |                                                       |
+    | [Pin 7] --|-----------[Resistor]-----((+ long) LED Yellow (-))----|---- [GND RAIL]
+    |           |                                                       |         |
+    | [Pin 8] --|-----------[Resistor]-----((+ long) LED Red (-))-------|         |
+    |           |                                                       |         |
+    | [GND] ----|-------------------------------------------------------|---------|
+    |           |                                                       |
+    +-----------+                                                       |
+                                                                    [GROUND]
+
+
 This project uses an Arduino Mega 2560 and a standard breadboard.
 
 1.  Download all contents of this repo to your local machine (I am running Windows 11)
@@ -18,18 +33,4 @@ This project uses an Arduino Mega 2560 and a standard breadboard.
     B. Special Modes: All LEDs On and Off, Disco Mode (LED Light randomizer On and Off), and Stop Light Simulator (Red for 3 seconds, Yellow for 1.5 seconds, and then Green for 3 seconds). This will repeat until you click the Stop Button.
 
 
-
-    ARDUINO MEGA 2560         BREADBOARD (Wiring View)
-    +-----------+
-    |           |
-    | [Pin 6] --|-----------[Resistor]-----((+ long) LED Green (-))-----|
-    |           |                                                       |
-    | [Pin 7] --|-----------[Resistor]-----((+ long) LED Yellow (-))----|---- [GND RAIL]
-    |           |                                                       |         |
-    | [Pin 8] --|-----------[Resistor]-----((+ long) LED Red (-))-------|         |
-    |           |                                                       |         |
-    | [GND] ----|-------------------------------------------------------|---------|
-    |           |                                                       |
-    +-----------+                                                       |
-                                                                    [GROUND]
 
