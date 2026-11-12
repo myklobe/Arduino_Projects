@@ -1,18 +1,12 @@
-// I have customized this sketch from the MD_Parola library to make a simple 8x32 LED Might Matrix Text Scroller
-// My LED Matrix: https://www.amazon.com/gp/product/B06W9F1J2Z/
-// Cylewet MAX7219 Dot Matrix Module 4 in 1 Display for Arduino Microcontroller with 5Pin Line CYT1045 (FC16 is this hardware type)
-
-// My Arduino Mega - https://www.amazon.com/gp/product/B016JWNYBE
-
 // Include the 3 required libraries
-#include <MD_Parola.h>    // https://github.com/MajicDesigns/MD_Parola - Download here
-#include <MD_MAX72xx.h>   // https://github.com/MajicDesigns/MD_MAX72xx - Download here
-#include <SPI.h>          // https://github.com/PaulStoffregen/SPI - Download here
+#include <MD_Parola.h>
+#include <MD_MAX72xx.h>
+#include <SPI.h>
 
 #define MAX_DEVICES 4     // # of your 8x8 LED Matrix modules (I have 4)
 #define CLK_PIN 13        // From the CLK pin on your LED Matrix to the Arduino, I used Pin 13
 #define DATA_PIN 11       // From the DIN / DATA pin on your LED Matrix to the Arduino, I used Pin 11
-#define CS_PIN 10         // From the CS pinon your LED Matrix to the Arduino, I used Pin 10
+#define CS_PIN 10         // From the CS pin on your LED Matrix to the Arduino, I used Pin 10
 
 #define HARDWARE_TYPE MD_MAX72XX::FC16_HW   // Set your hardware type, for the LED Matrix listed above, FC16
                                             // Check the back of your Matrix, it should say
@@ -21,15 +15,15 @@
 //Setup MD_Parola
 MD_Parola P = MD_Parola(HARDWARE_TYPE, DATA_PIN, CLK_PIN, CS_PIN, MAX_DEVICES); // See MD_Parola documentation for all parameters
 
-uint8_t scrollSpeed = 25;                         // default frame delay value
-textEffect_t scrollEffect = PA_SCROLL_LEFT;       // I wanted the text to scroll from right to left, See MD_Parola documentation for all scroll effects
+uint8_t scrollSpeed = 25;                   // default frame delay value
+textEffect_t scrollEffect = PA_SCROLL_LEFT; // I used scroll from right to left. See MD_Parola documentation for all scroll effects
 textPosition_t scrollAlign = PA_LEFT;
-uint16_t scrollPause = 2000;                      // in milliseconds
+uint16_t scrollPause = 2000;                // in milliseconds
 
 // Global message buffers for Scrolling functions
 #define BUF_SIZE  75
 char curMessage[BUF_SIZE] = { " " };
-char newMessage[BUF_SIZE] = { "Scrolling Text is Fun!" }; // Message to display
+char newMessage[BUF_SIZE] = { "Scrolling Text is Fun!" }; // Edit message to display
 bool newMessageAvailable = true;
 
 
