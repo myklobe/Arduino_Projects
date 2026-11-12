@@ -1,4 +1,4 @@
-    ARDUINO MEGA             BREADBOARD (Wiring View)
+    ARDUINO MEGA 2560         BREADBOARD (Wiring View)
     +-----------+
     |           |
     | [Pin 6] --|-----------[Resistor]-----((+ long) LED Green (-))-----|
