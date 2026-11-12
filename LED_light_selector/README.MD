@@ -1,4 +1,17 @@
-    ARDUINO MEGA 2560         BREADBOARD (Wiring View)
+# Arduino LED Control System
+
+A web-based interface to control a set of LEDs (Red, Yellow, Green) connected to an Arduino Mega 2560.
+
+## 🛠 Hardware Requirements
+* Arduino Mega 2560
+* Breadboard
+* 3x LEDs (Red, Yellow, Green)
+* 3x Resistors (appropriate for your LEDs)
+* Jumper wires
+
+## 🔌 Wiring Diagram (Breadboard View)
+```text
+ARDUINO MEGA 2560         BREADBOARD (Wiring View)
     +-----------+
     |           |
     | [Pin 6] --|-----------[Resistor]-----((+ long) LED Green (-))-----|
@@ -11,26 +24,38 @@
     |           |                                                       |
     +-----------+                                                       |
                                                                     [GROUND]
+```
 
+## 🚀 Getting Started
 
-This project uses an Arduino Mega 2560 and a standard breadboard.
+### 1. Preparation
+* Download all contents of this repository to your local machine.
+* Extract/Open the folder.
 
-1.  Download all contents of this repo to your local machine (I am running Windows 11)
-1A. Open the folder
-2.  Launch Arduino IDE
-2A. Select your board (Mine is Arduino Mega 2560)
-2B. Copy led_control_setup.ino script into Arduino IDE
-2C. Click the Checkmark (You will get a Done Compiling message)
-2D. Click the --> arrow to Upload to the board (You will get a Done Uploading message)
-2E. Once uploaded, close the Arduino IDE (don't save)
-3.  Launch index.html in a browser (I tested in Chrome)
-3A. In the browser, click the Connect to Arduino button
-3B. A Connect to a serial port pop up will display
-3C. Select your Arduino board and then click the Connect button
-3D. You will see a Status: Connected message on the page
-4.  You now have multiple controls of your LED lights
-4A. Basic LEDs: Red LED, Yellow LED, and Green LED
-4B. Special Modes: All LEDs On and Off, Disco Mode (LED Light randomizer On and Off), and Stop Light Simulator (Red for 3 seconds, Yellow for 1.5 seconds, and then Green for 3 seconds). This will repeat until you click the Stop Button.
+### 2. Firmware Setup
+1. Launch the **Arduino IDE**.
+2. **Select your board**: Go to *Tools > Board* and select **Arduino Mega 2560**.
+3. **Load the script**: Copy the code from `led_control_setup.ino` into a new sketch in the IDE.
+4. **Compile**: Click the **Checkmark** icon (Verify). You should see a "Done Compiling" message.
+5. **Upload**: Click the **$\rightarrow$ arrow** icon (Upload). You should see a "Done Uploading" message.
+6. **Close**: Once uploaded, close the Arduino IDE (no need to save changes).
 
+### 3. Web Interface Setup
+1. Open `index.html` in a web browser (tested successfully in **Chrome**).
+2. Click the **Connect to Arduino** button on the webpage.
+3. A "Connect to a serial port" pop-up will appear.
+4. Select your Arduino board's COM port and click **Connect**.
+5. You should see a `Status: Connected` message on the page.
 
+## ✨ Features
+Once connected, you can control the LEDs using the following modes:
 
+*   **Basic Controls**: Individually toggle the Red, Yellow, and Green LEDs.
+*   **All LEDs On/Off**: Quickly toggle all lights simultaneously.
+*   **Disco Mode**: A randomizer that cycles through the LEDs randomly.
+    *   *Note: This repeats automatically until you click the **Stop** button.*
+*   **Stop Light Simulator**: A programmed sequence:
+    *   **Red**: 3 seconds
+    *   **Yellow**: 1.5 seconds
+    *   **Green**: 3 seconds
+    *   *Note: This repeats automatically until you click the **Stop** button.*
