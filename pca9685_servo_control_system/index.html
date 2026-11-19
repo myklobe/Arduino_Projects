@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servo Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
+        .card { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .servo-control { margin: 30px 0; }
+        input[type=range] { width: 300px; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Servo Controller</h1>
+
+        <div class="servo-control">
+            <label>Servo 1: <span id="val1">90</span>°</label><br>
+            <input type="range" min="0" max="180" value="90"
+                   oninput="updateServo(0, this.value)" id="s1">
+        </div>
+
+        <div class="servo-control">
+            <label>Servo 2: <span id="val2">90</span>°</label><br>
+            <input type="range" min="0" max="180" value="90"
+                   oninput="updateServo(1, this.value)" id="s2">
+        </div>
+    </div>
+
+    <script>
+        function updateServo(id, value) {
+            // Update the text label
+            document.getElementById('val' + (id + 1)).innerText = value;
+
+            // Send request to the Python backend
+            fetch('/move', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ servo_id: id, degrees: parseInt(value) })
+            });
+        }
+    </script>
+</body>
+</html>
