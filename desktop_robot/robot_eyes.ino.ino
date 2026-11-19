@@ -1,6 +1,8 @@
 /*
-
-# Refactor this once the Touch Sensor is wired in to ESP Chip
+//
+// This section is for use with the ESP8266 Chip and the SSD1306 OLED display
+// Refactor this once the Touch Sensor is wired in to ESP Chip
+//
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -89,8 +91,9 @@ void loop() {
 
 
 
-
+// This section is using the Arduino Mega 2650 Board to control the eyes
 //Basic random RoboEyes animations for Arduino
+
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
